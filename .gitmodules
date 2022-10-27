@@ -1,0 +1,3 @@
+[submodule "ukintensity_integration"]
+	path = ukintensity_integration
+	url = https://github.com/jordansrowles/ukintensity_integration
