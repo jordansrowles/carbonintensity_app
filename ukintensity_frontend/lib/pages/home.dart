@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Flexible(
                               child: Text(
                             'Carbon Intensity UK',
-                            style: Theme.of(context).textTheme.headline2,
+                            style: Theme.of(context).textTheme.headline3,
                           )),
                         ]),
                   ),

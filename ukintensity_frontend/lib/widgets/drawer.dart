@@ -45,8 +45,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const CurrentNationalIntensityPage(
-                    title: "Current National Intensity",
-                  )));
+                        title: "Current National Intensity",
+                      )));
             },
           ),
           ListTile(
@@ -55,8 +55,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const AllNationalIntensityPage(
-                    title: "Current National Intensity",
-                  )));
+                        title: "Current National Intensity",
+                      )));
             },
           ),
           ListTile(

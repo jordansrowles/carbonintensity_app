@@ -43,8 +43,8 @@ class _CurrentNationalIntensityPageState
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(prettyDate(snapshot.data!.data![0].to,
-                                snapshot.data!.data![0].from))
+                            Text(prettyDate(snapshot.data!.data![0].from,
+                                snapshot.data!.data![0].to))
                           ],
                         ),
                         // widget info row

@@ -7,74 +7,76 @@ class IntensityCard extends StatelessWidget {
   final IntensityData snapshot;
 
   IntensityCard({super.key, required this.snapshot}) {
-    snapshot.intensity?.actual ??= 0;
+    snapshot.intensity?.actual ??=
+        0; // if in future time, otherwise returns null
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(prettyDate(snapshot.to,
-                  snapshot.from))
-            ],
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 1,
           ),
-          // widget info row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Text(prettyDate(snapshot.from, snapshot.to))],
+            ),
+            // widget info row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      "${snapshot.intensity!.actual! - snapshot.intensity!.forecast!}",
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    getIntensityDeltaIcon(snapshot.intensity!.forecast! -
+                        snapshot.intensity!.actual!),
+                    getIntensityNumberIcon(snapshot.intensity!.index),
+                    Text(
+                      snapshot.intensity!.index!.toPascalCase(),
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                  ],
+                ),
+                Column(children: <Widget>[
                   Text(
-                    "${snapshot.intensity!.actual! - snapshot.intensity!.forecast!}",
+                    'Forecast',
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                  Text(
+                    '${snapshot.intensity!.forecast}',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Text(
+                    "gCO2/kWh",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  getIntensityDeltaIcon(snapshot.intensity!.forecast! -
-                      snapshot.intensity!.actual!),
-                  getIntensityNumberIcon(
-                      snapshot.intensity!.index),
+                ]),
+                Column(children: <Widget>[
                   Text(
-                    snapshot.intensity!.index!
-                        .toPascalCase(),
+                    'Actual',
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                  Text(
+                    '${snapshot.intensity!.actual}',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Text(
+                    "gCO2/kWh",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                ],
-              ),
-              Column(children: <Widget>[
-                Text(
-                  'Forecast',
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-                Text(
-                  '${snapshot.intensity!.forecast}',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                Text(
-                  "gCO2/kWh",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-              ]),
-              Column(children: <Widget>[
-                Text(
-                  'Actual',
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-                Text(
-                  '${snapshot.intensity!.actual}',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                Text(
-                  "gCO2/kWh",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-              ])
-            ],
-          )
-        ],
-      ),
-    );
+                ])
+              ],
+            )
+          ],
+        ));
   }
 }

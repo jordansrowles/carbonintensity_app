@@ -15,8 +15,7 @@ class AllNationalIntensityPage extends StatefulWidget {
       _AllNationalIntensityPageState();
 }
 
-class _AllNationalIntensityPageState
-    extends State<AllNationalIntensityPage> {
+class _AllNationalIntensityPageState extends State<AllNationalIntensityPage> {
   @override
   Widget build(BuildContext context) {
     Widget content;
@@ -39,9 +38,9 @@ class _AllNationalIntensityPageState
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
-                        for(var i = 0; i < snapshot.data!.data!.length ; i++)
+                        for (var i = 0; i < snapshot.data!.data!.length; i++)
                           //if (snapshot.data!.data![i].intensity!.actual! != null)
-                            IntensityCard(snapshot: snapshot.data!.data![i])
+                          IntensityCard(snapshot: snapshot.data!.data![i])
                       ];
                     } else if (snapshot.hasError) {
                       children = <Widget>[
