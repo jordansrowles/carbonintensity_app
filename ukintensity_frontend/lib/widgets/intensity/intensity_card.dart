@@ -6,7 +6,9 @@ import 'package:ukintensity_integration/ukintensity_integration.dart';
 class IntensityCard extends StatelessWidget {
   final IntensityData snapshot;
 
-  const IntensityCard({super.key, required this.snapshot});
+  IntensityCard({super.key, required this.snapshot}) {
+    snapshot.intensity?.actual ??= 0;
+  }
 
   @override
   Widget build(BuildContext context) {
