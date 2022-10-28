@@ -8,7 +8,7 @@ String prettyDate(String? start, String? end) {
     return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM)").format(e);
   }
   else {
-    return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM) YYYY MM dd").format(e);
+    return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM) yyyy MM dd").format(e);
   }
 }
 
