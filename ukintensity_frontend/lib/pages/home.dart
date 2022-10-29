@@ -47,16 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(
-                          child: Text(
-                        'Carbon Intensity UK',
-                        style: Theme.of(context).textTheme.headline3,
-                      )),
-                    ]),
-                  ),
-                  Padding(
                     padding: const EdgeInsets.all(20),
                     child: Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                       Flexible(
@@ -67,9 +57,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     ]),
                   ),
                   Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                      Flexible(
+                          child: ElevatedButton(onPressed: _launchSite, child: const Text('API Website'))),
+                    ]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                      Flexible(
+                          child: ElevatedButton(onPressed: _launchDocs, child: const Text('API Documentation'))),
+                    ]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                      Flexible(
+                          child: ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))),
+                    ]),
+                  ),
+
+
+                  /*
+                   Column(
                         children: <Widget>[
                           ElevatedButton(onPressed: _launchSite, child: const Text('API Website')),
                           const Spacer(),
@@ -77,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           const Spacer(),
                           ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))
                         ],
-                      ))
+                      )*/
                 ]),
           ),
         )
