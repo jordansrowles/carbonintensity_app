@@ -59,25 +59,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(
-                          child: ElevatedButton(onPressed: _launchSite, child: const Text('API Website'))),
+                      Flexible(child: ElevatedButton(onPressed: _launchSite, child: const Text('API Website'))),
                     ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(
-                          child: ElevatedButton(onPressed: _launchDocs, child: const Text('API Documentation'))),
+                      Flexible(child: ElevatedButton(onPressed: _launchDocs, child: const Text('API Documentation'))),
                     ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(
-                          child: ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))),
+                      Flexible(child: ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))),
                     ]),
                   ),
-
 
                   /*
                    Column(
