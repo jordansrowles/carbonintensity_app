@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ukintensity_app/utils/utils.dart';
-import 'package:ukintensity_app/utils/icon_utils.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
 import 'package:ukintensity_app/widgets/intensity/intensity_card.dart';
 import 'package:ukintensity_integration/ukintensity_integration.dart';
@@ -34,9 +32,7 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
                   builder: (BuildContext context, AsyncSnapshot<NationalIntensity> snapshot) {
                     List<Widget> children;
                     if (snapshot.hasData) {
-                      children = <Widget>[
-                        IntensityCard(snapshot: snapshot.data!.data![0])
-                      ];
+                      children = <Widget>[IntensityCard(snapshot: snapshot.data!.data![0])];
                     } else if (snapshot.hasError) {
                       children = <Widget>[
                         const Icon(
