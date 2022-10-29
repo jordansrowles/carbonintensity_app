@@ -12,7 +12,7 @@ String prettyDate(String? start, String? end) {
 }
 
 extension ToPascalCase on String {
-  String toPascalCase() => this[0].toUpperCase() + this.substring(1);
+  String toPascalCase() => this[0].toUpperCase() + substring(1);
 }
 
 // https://stackoverflow.com/questions/52978195/comparing-only-dates-of-datetimes-in-dart
@@ -25,7 +25,7 @@ extension DateOnlyCompare on DateTime {
 // todo. 0-45 verylow. 46-130 low. 131-215 moderate. 216-319 high. 320-420 veryhigh.
 //  https://www.nationalgrideso.com/future-energy/our-progress/carbon-intensity-dashboard
 String getIndexStringFromIntensityValue(int? value) {
-  if (value! >= 0 && value! >= 45) return "very low";
+  if (value! >= 0 && value >= 45) return "very low";
   throw Exception();
 }
 

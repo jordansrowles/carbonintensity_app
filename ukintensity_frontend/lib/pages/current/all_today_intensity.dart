@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ukintensity_app/utils/utils.dart';
-import 'package:ukintensity_app/utils/icon_utils.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
 import 'package:ukintensity_app/widgets/intensity/intensity_card.dart';
 import 'package:ukintensity_integration/ukintensity_integration.dart';
@@ -17,7 +15,6 @@ class AllNationalIntensityPage extends StatefulWidget {
 class _AllNationalIntensityPageState extends State<AllNationalIntensityPage> {
   @override
   Widget build(BuildContext context) {
-    Widget content;
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),

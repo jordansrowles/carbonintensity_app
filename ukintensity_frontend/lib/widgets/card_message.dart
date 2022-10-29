@@ -4,10 +4,10 @@ class CardMessage extends StatelessWidget {
   final String? heading;
   final String? text;
 
-  CardMessage({
+  const CardMessage({
     Key? key,
-    required String? this.heading,
-    required String? this.text,
+    required this.heading,
+    required this.text,
   }) : super(key: key);
 
   @override

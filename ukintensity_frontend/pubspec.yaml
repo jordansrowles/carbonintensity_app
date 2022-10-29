@@ -41,6 +41,7 @@ dependencies:
     path: ../ukintensity_integration
   syncfusion_flutter_charts: ^20.3.47
   url_launcher: ^6.1.6
+  intl:
 
 dev_dependencies:
   flutter_test:

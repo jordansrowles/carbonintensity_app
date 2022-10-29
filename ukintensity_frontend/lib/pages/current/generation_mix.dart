@@ -6,9 +6,7 @@ import 'package:ukintensity_integration/ukintensity_integration.dart';
 
 class CurrentGenMixPage extends StatelessWidget {
   final String title;
-  late List<GenerationMixItem>? items;
-
-  CurrentGenMixPage({super.key, required this.title});
+  const CurrentGenMixPage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,6 @@ import 'package:ukintensity_app/pages/current/all_today_intensity.dart';
 import 'package:ukintensity_app/pages/current/generation_mix.dart';
 import 'package:ukintensity_app/pages/current/national_intensity.dart';
 import 'package:ukintensity_app/pages/home.dart';
-import 'package:ukintensity_integration/ukintensity_integration.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -64,7 +63,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             leading: const Icon(Icons.factory),
             onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CurrentGenMixPage(
+                  builder: (context) => const CurrentGenMixPage(
                         title: "Current Gen Mix Data",
                       )));
             },

@@ -19,5 +19,12 @@ Icon getIntensityDeltaIcon(int? delta) => Icon(
       color: (delta!.isNegative) ? Colors.red : Colors.green,
     );
 
-Icon getIntensityNumberIcon(String? index) =>
-    Icon(intensityColours[index!]!["icon"] as IconData, size: 50, color: intensityColours[index!]!["colour"] as Color);
+Icon getIntensityNumberIcon(String? index) {
+  try {
+    return Icon(intensityColours[index]!["icon"] as IconData,
+        size: 50, color: intensityColours[index]!["colour"] as Color);
+  } catch (e) {
+    return const Icon(Icons.looks, size: 50, color: Colors.green);
+  }
+
+}

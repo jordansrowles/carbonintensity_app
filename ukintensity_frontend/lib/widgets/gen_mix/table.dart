@@ -4,7 +4,7 @@ import 'package:ukintensity_integration/ukintensity_integration.dart';
 class GenMixTable extends StatelessWidget {
   final List<GenerationMixItem>? items;
 
-  GenMixTable({Key? key, required List<GenerationMixItem>? this.items}) : super(key: key) {
+  GenMixTable({Key? key, required this.items}) : super(key: key) {
     items!.sort((a, b) => b.perc!.compareTo(a.perc!));
   }
 

@@ -15,7 +15,6 @@ class CurrentNationalIntensityPage extends StatefulWidget {
 class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityPage> {
   @override
   Widget build(BuildContext context) {
-    Widget content;
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
