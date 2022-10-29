@@ -5,7 +5,7 @@ class GenMixTable extends StatelessWidget {
   final List<GenerationMixItem>? items;
 
   GenMixTable({Key? key, required List<GenerationMixItem>? this.items}) : super(key: key) {
-    items!.sort((a, b) => a.perc!.compareTo(b.perc!));
+    items!.sort((a, b) => b.perc!.compareTo(a.perc!));
   }
 
   @override
