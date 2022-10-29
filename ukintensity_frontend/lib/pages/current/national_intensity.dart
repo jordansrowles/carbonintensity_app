@@ -35,78 +35,7 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
-                        // datetime row
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[Text(prettyDate(snapshot.data!.data![0].from, snapshot.data!.data![0].to))],
-                        ),
-                        // widget info row
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Text(
-                                  "${snapshot.data!.data![0].intensity!.actual! - snapshot.data!.data![0].intensity!.forecast!}",
-                                  style: Theme.of(context).textTheme.headline6,
-                                ),
-                                getIntensityDeltaIcon(
-                                    snapshot.data!.data![0].intensity!.forecast! - snapshot.data!.data![0].intensity!.actual!),
-                                getIntensityNumberIcon(snapshot.data!.data![0].intensity!.index),
-                                Text(
-                                  snapshot.data!.data![0].intensity!.index!.toPascalCase(),
-                                  style: Theme.of(context).textTheme.headline6,
-                                ),
-                              ],
-                            ),
-                            Column(children: <Widget>[
-                              Text(
-                                'Forecast',
-                                style: Theme.of(context).textTheme.headline3,
-                              ),
-                              Text(
-                                '${snapshot.data!.data![0].intensity!.forecast}',
-                                style: Theme.of(context).textTheme.headline4,
-                              ),
-                              Text(
-                                "gCO2/kWh",
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                            ]),
-                            Column(children: <Widget>[
-                              Text(
-                                'Actual',
-                                style: Theme.of(context).textTheme.headline3,
-                              ),
-                              Text(
-                                '${snapshot.data!.data![0].intensity!.actual}',
-                                style: Theme.of(context).textTheme.headline4,
-                              ),
-                              Text(
-                                "gCO2/kWh",
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                            ])
-                          ],
-                        )
-                        /*
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: Text(prettyDate(snapshot.data!.data![0].to, snapshot.data!.data![0].from)),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                  Icon(
-                    getIconFromIntensityIndex(snapshot.data!.data![0].intensity!.index),
-                    color: getColourFromIntensityIndex(snapshot.data!.data![0].intensity!.index),
-                    size: 80,
-                  ),
-                  Text(
-                      snapshot.data!.data![0].intensity!.index!.toPascalCase(),
-                      style: Theme.of(context).textTheme.headline3
-                  )
-                ]),*/
+                        IntensityCard(snapshot: snapshot.data!.data![0])
                       ];
                     } else if (snapshot.hasError) {
                       children = <Widget>[
