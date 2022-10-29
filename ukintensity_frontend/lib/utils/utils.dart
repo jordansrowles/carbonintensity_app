@@ -6,8 +6,7 @@ String prettyDate(String? start, String? end) {
 
   if (s.isSameDate(e)) {
     return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM)").format(e);
-  }
-  else {
+  } else {
     return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM) yyyy MM dd").format(e);
   }
 }
@@ -19,8 +18,7 @@ extension ToPascalCase on String {
 // https://stackoverflow.com/questions/52978195/comparing-only-dates-of-datetimes-in-dart
 extension DateOnlyCompare on DateTime {
   bool isSameDate(DateTime other) {
-    return year == other.year && month == other.month
-        && day == other.day;
+    return year == other.year && month == other.month && day == other.day;
   }
 }
 

@@ -11,12 +11,10 @@ class CurrentNationalIntensityPage extends StatefulWidget {
   const CurrentNationalIntensityPage({super.key, required this.title});
 
   @override
-  State<CurrentNationalIntensityPage> createState() =>
-      _CurrentNationalIntensityPageState();
+  State<CurrentNationalIntensityPage> createState() => _CurrentNationalIntensityPageState();
 }
 
-class _CurrentNationalIntensityPageState
-    extends State<CurrentNationalIntensityPage> {
+class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityPage> {
   @override
   Widget build(BuildContext context) {
     Widget content;
@@ -32,20 +30,15 @@ class _CurrentNationalIntensityPageState
               padding: const EdgeInsets.only(top: 20),
               child: Column(children: <Widget>[
                 FutureBuilder<NationalIntensity>(
-                  future: NationalIntensityService
-                      .getCurrentHalfHour(), // a previously-obtained Future<String> or null
-                  builder: (BuildContext context,
-                      AsyncSnapshot<NationalIntensity> snapshot) {
+                  future: NationalIntensityService.getCurrentHalfHour(), // a previously-obtained Future<String> or null
+                  builder: (BuildContext context, AsyncSnapshot<NationalIntensity> snapshot) {
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
                         // datetime row
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(prettyDate(snapshot.data!.data![0].from,
-                                snapshot.data!.data![0].to))
-                          ],
+                          children: <Widget>[Text(prettyDate(snapshot.data!.data![0].from, snapshot.data!.data![0].to))],
                         ),
                         // widget info row
                         Row(
@@ -57,14 +50,11 @@ class _CurrentNationalIntensityPageState
                                   "${snapshot.data!.data![0].intensity!.actual! - snapshot.data!.data![0].intensity!.forecast!}",
                                   style: Theme.of(context).textTheme.headline6,
                                 ),
-                                getIntensityDeltaIcon(snapshot
-                                        .data!.data![0].intensity!.forecast! -
-                                    snapshot.data!.data![0].intensity!.actual!),
-                                getIntensityNumberIcon(
-                                    snapshot.data!.data![0].intensity!.index),
+                                getIntensityDeltaIcon(
+                                    snapshot.data!.data![0].intensity!.forecast! - snapshot.data!.data![0].intensity!.actual!),
+                                getIntensityNumberIcon(snapshot.data!.data![0].intensity!.index),
                                 Text(
-                                  snapshot.data!.data![0].intensity!.index!
-                                      .toPascalCase(),
+                                  snapshot.data!.data![0].intensity!.index!.toPascalCase(),
                                   style: Theme.of(context).textTheme.headline6,
                                 ),
                               ],

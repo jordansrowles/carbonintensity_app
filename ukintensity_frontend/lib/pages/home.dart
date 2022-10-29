@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:ukintensity_app/utils/utils.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
 import 'package:ukintensity_app/widgets/gen_mix/chart.dart';
@@ -12,12 +13,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  _launchDocs() async {
+    if (!await launchUrl(Uri.parse("https://carbon-intensity.github.io/api-definitions/"))) {
+      throw 'Could not launch docs';
+    }
+  }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  _launchSite() async {
+    if (!await launchUrl(Uri.parse("https://carbonintensity.org.uk/"))) {
+      throw 'Could not launch site';
+    }
+  }
+
+  _launchEndpoints() async {
+    if (!await launchUrl(Uri.parse("https://api.carbonintensity.org.uk/"))) {
+      throw 'Could not launch site';
+    }
   }
 
   @override
@@ -37,28 +48,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Flexible(
-                              child: Text(
-                            'Carbon Intensity UK',
-                            style: Theme.of(context).textTheme.headline3,
-                          )),
-                        ]),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                      Flexible(
+                          child: Text(
+                        'Carbon Intensity UK',
+                        style: Theme.of(context).textTheme.headline3,
+                      )),
+                    ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(20),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    child: Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                      Flexible(
+                          child: Text(
+                        homeDetails,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ))
+                    ]),
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Flexible(
-                              child: Text(
-                            homeDetails,
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ))
-                        ]),
-                  )
+                          ElevatedButton(onPressed: _launchSite, child: const Text('API Website')),
+                          const Spacer(),
+                          ElevatedButton(onPressed: _launchDocs, child: const Text('API Documentation')),
+                          const Spacer(),
+                          ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))
+                        ],
+                      ))
                 ]),
           ),
         )

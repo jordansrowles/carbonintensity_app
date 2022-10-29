@@ -20,5 +20,4 @@ Icon getIntensityDeltaIcon(int? delta) => Icon(
     );
 
 Icon getIntensityNumberIcon(String? index) =>
-    Icon(intensityColours[index!]!["icon"] as IconData,
-        size: 50, color: intensityColours[index!]!["colour"] as Color);
+    Icon(intensityColours[index!]!["icon"] as IconData, size: 50, color: intensityColours[index!]!["colour"] as Color);

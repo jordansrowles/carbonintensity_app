@@ -25,24 +25,18 @@ class CurrentGenMixPage extends StatelessWidget {
                 child: Column(children: <Widget>[
                   FutureBuilder<GenerationMix?>(
                       future: GenerationMixService.get(),
-                      builder: (BuildContext ctx,
-                              AsyncSnapshot<GenerationMix?> snapshot) =>
-                          snapshot.hasData
-                              ? Center(
-                                  child: Column(
-                                  children: [
-                                    GenMixChart(
-                                        items: snapshot
-                                            .data!.data!.generationmix!),
-                                    GenMixTable(
-                                        items:
-                                            snapshot.data!.data!.generationmix!)
-                                  ],
-                                ))
-                              : const Center(
-                                  // render the loading indicator
-                                  child: CircularProgressIndicator(),
-                                ))
+                      builder: (BuildContext ctx, AsyncSnapshot<GenerationMix?> snapshot) => snapshot.hasData
+                          ? Center(
+                              child: Column(
+                              children: [
+                                GenMixChart(items: snapshot.data!.data!.generationmix!),
+                                GenMixTable(items: snapshot.data!.data!.generationmix!)
+                              ],
+                            ))
+                          : const Center(
+                              // render the loading indicator
+                              child: CircularProgressIndicator(),
+                            ))
                 ]))));
   }
 }

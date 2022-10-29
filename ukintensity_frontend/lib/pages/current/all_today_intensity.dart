@@ -11,8 +11,7 @@ class AllNationalIntensityPage extends StatefulWidget {
   const AllNationalIntensityPage({super.key, required this.title});
 
   @override
-  State<AllNationalIntensityPage> createState() =>
-      _AllNationalIntensityPageState();
+  State<AllNationalIntensityPage> createState() => _AllNationalIntensityPageState();
 }
 
 class _AllNationalIntensityPageState extends State<AllNationalIntensityPage> {
@@ -31,10 +30,8 @@ class _AllNationalIntensityPageState extends State<AllNationalIntensityPage> {
               padding: const EdgeInsets.only(top: 20),
               child: Column(children: <Widget>[
                 FutureBuilder<NationalIntensity>(
-                  future: NationalIntensityService
-                      .getToday(), // a previously-obtained Future<String> or null
-                  builder: (BuildContext context,
-                      AsyncSnapshot<NationalIntensity> snapshot) {
+                  future: NationalIntensityService.getToday(), // a previously-obtained Future<String> or null
+                  builder: (BuildContext context, AsyncSnapshot<NationalIntensity> snapshot) {
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
