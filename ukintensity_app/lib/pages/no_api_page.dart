@@ -1,1 +1,0 @@
-// todo for when there is no connection to the api, return this page

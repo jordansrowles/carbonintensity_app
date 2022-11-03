@@ -1,14 +1,41 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+// https://stackoverflow.com/questions/62432229/how-to-assign-hexadecimal-color-code-in-primaryswatch-in-flutter
+MaterialColor buildMaterialColor(Color color) {
+  List strengths = <double>[.05];
+  Map<int, Color> swatch = {};
+  final int r = color.red, g = color.green, b = color.blue;
+
+  for (int i = 1; i < 10; i++) {
+    strengths.add(0.1 * i);
+  }
+  for (var strength in strengths) {
+    final double ds = 0.5 - strength;
+    swatch[(strength * 1000).round()] = Color.fromRGBO(
+      r + ((ds < 0 ? r : (255 - r)) * ds).round(),
+      g + ((ds < 0 ? g : (255 - g)) * ds).round(),
+      b + ((ds < 0 ? b : (255 - b)) * ds).round(),
+      1,
+    );
+  }
+  return MaterialColor(color.value, swatch);
+}
 
 String prettyDate(String? start, String? end) {
   var s = DateTime.parse(start!);
   var e = DateTime.parse(end!);
 
   if (s.isSameDate(e)) {
-    return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM)").format(e);
+    return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) + DateFormat("HH:MM)").format(e);
   } else {
-    return DateFormat("yyyy MM dd (HH:MM - ").format(s) + DateFormat("HH:MM) yyyy MM dd").format(e);
+    return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) + DateFormat("HH:MM) dd-MM-yyyy").format(e);
   }
+}
+
+String prettySingleDate(String? date) {
+  var s = DateTime.parse(date!);
+  return DateFormat("dd-MM-yyyy (HH:MM)").format(s);
 }
 
 extension ToPascalCase on String {
@@ -35,4 +62,8 @@ National Grid ESO, in partnership with Environmental Defense Fund Europe, Univer
 The Carbon Intensity API uses state-of-the-art Machine Learning and sophisticated power system modelling to forecast the carbon intensity and generation mix 96+ hours ahead for each region in Great Britain. 
 
 Our OpenAPI allows consumers and smart devices to schedule and minimise CO2 emissions at a local level.
+""";
+
+const String whatIsGenMix = """
+Power Generation Mix is a group of different primary and secondary fuel sources of the UK's generation of power: be it coal, oil, wind, nuclear or imports. The generation mix data is current, so things like solar and wind will fluctuate throughout the day parts.
 """;

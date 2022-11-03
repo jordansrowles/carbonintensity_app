@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ukintensity_app/utils/utils.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
-import 'package:ukintensity_app/widgets/gen_mix/chart.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -13,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   _launchDocs() async {
     if (!await launchUrl(Uri.parse("https://carbon-intensity.github.io/api-definitions/"))) {
       throw 'Could not launch docs';
@@ -36,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          backgroundColor: Colors.black12,
+          //backgroundColor: Colors.black12,
         ),
         drawer: const DrawerWidget(),
         body: SingleChildScrollView(

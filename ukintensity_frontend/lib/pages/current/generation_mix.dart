@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ukintensity_app/utils/utils.dart';
+import 'package:ukintensity_app/widgets/card_message.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
 import 'package:ukintensity_app/widgets/gen_mix/chart.dart';
 import 'package:ukintensity_app/widgets/gen_mix/table.dart';
@@ -13,8 +15,6 @@ class CurrentGenMixPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
-          backgroundColor: Colors.black12,
-          centerTitle: true,
         ),
         drawer: const DrawerWidget(),
         body: SingleChildScrollView(
@@ -28,7 +28,8 @@ class CurrentGenMixPage extends StatelessWidget {
                               child: Column(
                               children: [
                                 GenMixChart(items: snapshot.data!.data!.generationmix!),
-                                GenMixTable(items: snapshot.data!.data!.generationmix!)
+                                GenMixTable(items: snapshot.data!.data!.generationmix!),
+                                const CardMessage(heading: "What is Generation Mix?", text: whatIsGenMix)
                               ],
                             ))
                           : const Center(

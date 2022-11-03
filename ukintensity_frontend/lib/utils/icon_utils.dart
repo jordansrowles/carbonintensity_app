@@ -8,21 +8,21 @@ var intensityColours = {
   "very high": {"icon": Icons.looks_4, "colour": Colors.black26}
 };
 
-Icon getIntensityDeltaIcon(int? delta) => Icon(
+Icon getIntensityDeltaIcon(int? delta, {double size = 35.0}) => Icon(
       // if delta is 0 = flat, negative = down, positive = up
       (delta == null || delta == 0)
           ? Icons.trending_flat
           : (delta.isNegative)
               ? Icons.trending_up
               : Icons.trending_down,
-      size: 35,
+      size: size,
       color: (delta!.isNegative) ? Colors.red : Colors.green,
     );
 
-Icon getIntensityNumberIcon(String? index) {
+Icon getIntensityNumberIcon(String? index, {double size = 50.0}) {
   try {
-    return Icon(intensityColours[index]!["icon"] as IconData, size: 50, color: intensityColours[index]!["colour"] as Color);
+    return Icon(intensityColours[index]!["icon"] as IconData, size: size, color: intensityColours[index]!["colour"] as Color);
   } catch (e) {
-    return const Icon(Icons.looks, size: 50, color: Colors.green);
+    return Icon(Icons.looks, size: size, color: Colors.green);
   }
 }
