@@ -15,6 +15,20 @@ class AllRegionalIntensityPage extends StatefulWidget {
 
 class _AllRegionalIntensityPageState extends State<AllRegionalIntensityPage> {
   @override
+  initState() {
+    late bool result = true;
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      result = tryConnection();
+    });
+    if (result == false) {
+      Future.delayed(Duration(milliseconds: 100)).then((_) {
+        Navigator.pushReplacementNamed(context, '/home');
+      });
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(

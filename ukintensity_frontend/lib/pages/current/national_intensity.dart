@@ -25,7 +25,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
             Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
-                  Text("UK", style: Theme.of(context).textTheme.titleLarge,)
+                  Text(
+                    "UK",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  )
                 ])),
             Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -77,7 +80,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
             Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
-                  Text("England", style: Theme.of(context).textTheme.titleLarge,)
+                  Text(
+                    "England",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  )
                 ])),
             Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -130,7 +136,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
             Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
-                  Text("Scotland", style: Theme.of(context).textTheme.titleLarge,)
+                  Text(
+                    "Scotland",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  )
                 ])),
             Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -183,7 +192,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
             Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
-                  Text("Wales", style: Theme.of(context).textTheme.titleLarge,)
+                  Text(
+                    "Wales",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  )
                 ])),
             Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -237,4 +249,3 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
         ));
   }
 }
-

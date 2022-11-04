@@ -6,12 +6,16 @@ import 'package:ukintensity_integration/ukintensity_integration.dart';
 
 class IntensityCard extends StatelessWidget {
   final IntensityData snapshot;
+
   /// show datetime string at top
   final bool showDate;
+
   /// display forecast and actual in the same column
   final bool isCompact;
+
   /// display actual column
   final bool showActual;
+
   /// display forecast column
   final bool showForecast;
 

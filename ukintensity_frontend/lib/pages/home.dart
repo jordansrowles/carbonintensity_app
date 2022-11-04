@@ -14,7 +14,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   _launchDocs() async {
     if (!await launchUrl(Uri.parse("https://carbon-intensity.github.io/api-definitions/"))) {
       throw 'Could not launch docs';
@@ -76,40 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Flexible(child: ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))),
                     ]),
                   ),
-
-                  /*
-                   Column(
-                        children: <Widget>[
-                          ElevatedButton(onPressed: _launchSite, child: const Text('API Website')),
-                          const Spacer(),
-                          ElevatedButton(onPressed: _launchDocs, child: const Text('API Documentation')),
-                          const Spacer(),
-                          ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))
-                        ],
-                      )*/
                 ]),
           ),
         )
-
-        /*Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),*/
         );
   }
 }

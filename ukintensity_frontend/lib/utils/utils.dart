@@ -1,5 +1,8 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ukintensity_app/pages/home.dart';
+import 'package:flutter/foundation.dart';
 
 // https://stackoverflow.com/questions/62432229/how-to-assign-hexadecimal-color-code-in-primaryswatch-in-flutter
 MaterialColor buildMaterialColor(Color color) {
@@ -54,6 +57,34 @@ extension DateOnlyCompare on DateTime {
 String getIndexStringFromIntensityValue(int? value) {
   if (value! >= 0 && value >= 45) return "very low";
   throw Exception();
+}
+
+tryConnection() async {
+  final Connectivity _connectivity = Connectivity();
+  ConnectivityResult result = await _connectivity.checkConnectivity();
+  if(result == ConnectivityResult.none) {
+    if (kDebugMode) {
+      print("No internet");
+    }
+    return false;
+  } else {
+    return true;
+  }
+}
+
+tryConnectionNavigate(BuildContext context) async {
+  final Connectivity _connectivity = Connectivity();
+  ConnectivityResult result = await _connectivity.checkConnectivity();
+  if(result == ConnectivityResult.none) {
+    if (kDebugMode) {
+      print("No internet");
+    }
+  } else {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const MyHomePage(
+          title: "All Regions",
+        )));
+  }
 }
 
 const String homeDetails = """
