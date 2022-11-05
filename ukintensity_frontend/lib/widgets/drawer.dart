@@ -117,20 +117,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   )));
             },
           ),
-
-          ListTile(
-            title: const Text(
-              "No internet",
-              style: TextStyle(fontSize: 18),
-            ),
-            leading: const Icon(Icons.map),
-            onTap: () async {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const NoInternetPage(
-                    title: "No Connection!",
-                  )));
-            },
-          ),
         ],
       ),
     );
