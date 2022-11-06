@@ -18,11 +18,8 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
   int status = 0; // 0 graph, 1 data, 2 hilo
 
   void changeStatus() {
-    if (status == 2) {
-      status = 1;
-    } else {
-      status++;
-    }
+    status++;
+    if (status == 3) status = 0;
   }
 
   @override
@@ -74,4 +71,5 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
           ]),
         ));
   }
+
 }
