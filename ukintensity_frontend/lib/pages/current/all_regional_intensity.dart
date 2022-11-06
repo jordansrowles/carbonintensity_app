@@ -17,7 +17,7 @@ class _AllRegionalIntensityPageState extends State<AllRegionalIntensityPage> {
   @override
   initState() {
     late bool result = true;
-    WidgetsBinding.instance.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       result = tryConnection();
     });
     if (result == false) {

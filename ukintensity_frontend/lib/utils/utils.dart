@@ -62,7 +62,7 @@ String getIndexStringFromIntensityValue(int? value) {
 tryConnection() async {
   final Connectivity _connectivity = Connectivity();
   ConnectivityResult result = await _connectivity.checkConnectivity();
-  if(result == ConnectivityResult.none) {
+  if (result == ConnectivityResult.none) {
     if (kDebugMode) {
       print("No internet");
     }
@@ -75,15 +75,15 @@ tryConnection() async {
 tryConnectionNavigate(BuildContext context) async {
   final Connectivity _connectivity = Connectivity();
   ConnectivityResult result = await _connectivity.checkConnectivity();
-  if(result == ConnectivityResult.none) {
+  if (result == ConnectivityResult.none) {
     if (kDebugMode) {
       print("No internet");
     }
   } else {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => const MyHomePage(
-          title: "All Regions",
-        )));
+              title: "All Regions",
+            )));
   }
 }
 

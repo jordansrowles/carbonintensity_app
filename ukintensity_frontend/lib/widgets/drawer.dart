@@ -113,8 +113,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const AllRegionalIntensityPage(
-                    title: "All Regions",
-                  )));
+                        title: "All Regions",
+                      )));
             },
           ),
         ],
