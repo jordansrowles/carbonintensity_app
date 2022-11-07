@@ -9,10 +9,7 @@ class RegionDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(top: 20),
-        child: Wrap(
-            spacing: 4,
-            runSpacing: 4,
-            children: <Widget>[
+        child: Wrap(spacing: 4, runSpacing: 4, children: <Widget>[
           Chip(
             label: Text("id: ${region.regionid.toString()}"),
           ),
