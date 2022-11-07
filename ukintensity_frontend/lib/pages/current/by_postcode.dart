@@ -92,7 +92,9 @@ class _CurrentByPostCodePageState extends State<CurrentByPostCodePage> {
                                                     .data!.data![0].data![0],
                                                 showActual: false,
                                               ),
-                                              RegionDetailsWidget(region: snapshot.data!.data![0]),
+                                              RegionDetailsWidget(
+                                                  region:
+                                                      snapshot.data!.data![0]),
                                             ]),
                                       ];
                                     } else if (snapshot.hasError) {
