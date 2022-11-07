@@ -19,14 +19,18 @@ class IntensityChart extends StatelessWidget {
             series: <AreaSeries<IntensityData, DateTime>>[
               AreaSeries(
                   dataSource: data,
-                  xValueMapper: (IntensityData intensity, _) => DateTime.parse(intensity.from as String),
-                  yValueMapper: (IntensityData intensity, _) => intensity.intensity!.forecast,
+                  xValueMapper: (IntensityData intensity, _) =>
+                      DateTime.parse(intensity.from as String),
+                  yValueMapper: (IntensityData intensity, _) =>
+                      intensity.intensity!.forecast,
                   color: Colors.blue,
                   legendItemText: "Forecast"),
               AreaSeries(
                   dataSource: data,
-                  xValueMapper: (IntensityData intensity, _) => DateTime.parse(intensity.from as String),
-                  yValueMapper: (IntensityData intensity, _) => intensity.intensity!.actual,
+                  xValueMapper: (IntensityData intensity, _) =>
+                      DateTime.parse(intensity.from as String),
+                  yValueMapper: (IntensityData intensity, _) =>
+                      intensity.intensity!.actual,
                   color: Colors.red,
                   opacity: 0.8,
                   legendItemText: "Actual"),

@@ -24,20 +24,31 @@ class CurrentGenMixPage extends StatelessWidget {
                 child: Column(children: <Widget>[
                   FutureBuilder<GenerationMix?>(
                       future: GenerationMixService.get(),
-                      builder: (BuildContext ctx, AsyncSnapshot<GenerationMix?> snapshot) => snapshot.hasData
-                          ? Center(
-                              child: Column(
-                              children: [
-                                GenMixSwitchChart(items: snapshot.data!.data!.generationmix!, title: "National Generation Mix"),
-                                GenMixChart(items: snapshot.data!.data!.generationmix!),
-                                GenMixTable(items: snapshot.data!.data!.generationmix!),
-                                const CardMessage(heading: "What is Generation Mix?", text: whatIsGenMix)
-                              ],
-                            ))
-                          : const Center(
-                              // render the loading indicator
-                              child: CircularProgressIndicator(),
-                            ))
+                      builder: (BuildContext ctx,
+                              AsyncSnapshot<GenerationMix?> snapshot) =>
+                          snapshot.hasData
+                              ? Center(
+                                  child: Column(
+                                  children: [
+                                    GenMixSwitchChart(
+                                        items:
+                                            snapshot.data!.data!.generationmix!,
+                                        title: "National Generation Mix"),
+                                    GenMixChart(
+                                        items: snapshot
+                                            .data!.data!.generationmix!),
+                                    GenMixTable(
+                                        items: snapshot
+                                            .data!.data!.generationmix!),
+                                    const CardMessage(
+                                        heading: "What is Generation Mix?",
+                                        text: whatIsGenMix)
+                                  ],
+                                ))
+                              : const Center(
+                                  // render the loading indicator
+                                  child: CircularProgressIndicator(),
+                                ))
                 ]))));
   }
 }

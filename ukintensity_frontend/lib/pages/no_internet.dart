@@ -54,24 +54,28 @@ class _NoInternetPageState extends State<NoInternetPage> {
                     children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20),
-                child: Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-                  Flexible(
-                      child: Text(
-                    "No internet connection! This app requires connection to the internet to query the API.",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ))
-                ]),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Flexible(
+                          child: Text(
+                        "No internet connection! This app requires connection to the internet to query the API.",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ))
+                    ]),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                  Flexible(
-                      child: ElevatedButton(
-                          onPressed: () async {
-                            await _tryConnection(context);
-                          },
-                          child: const Text('Try Connection'))),
-                ]),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Flexible(
+                          child: ElevatedButton(
+                              onPressed: () async {
+                                await _tryConnection(context);
+                              },
+                              child: const Text('Try Connection'))),
+                    ]),
               ),
             ]))));
   }

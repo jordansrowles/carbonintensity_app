@@ -15,7 +15,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   _launchDocs() async {
-    if (!await launchUrl(Uri.parse("https://carbon-intensity.github.io/api-definitions/"))) {
+    if (!await launchUrl(
+        Uri.parse("https://carbon-intensity.github.io/api-definitions/"))) {
       throw 'Could not launch docs';
     }
   }
@@ -49,31 +50,48 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(20),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-                      Flexible(
-                          child: Text(
-                        homeDetails,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ))
-                    ]),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Flexible(
+                              child: Text(
+                            homeDetails,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ))
+                        ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(child: ElevatedButton(onPressed: _launchSite, child: const Text('API Website'))),
-                    ]),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Flexible(
+                              child: ElevatedButton(
+                                  onPressed: _launchSite,
+                                  child: const Text('API Website'))),
+                        ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(child: ElevatedButton(onPressed: _launchDocs, child: const Text('API Documentation'))),
-                    ]),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Flexible(
+                              child: ElevatedButton(
+                                  onPressed: _launchDocs,
+                                  child: const Text('API Documentation'))),
+                        ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                      Flexible(child: ElevatedButton(onPressed: _launchEndpoints, child: const Text('API Endpoints'))),
-                    ]),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Flexible(
+                              child: ElevatedButton(
+                                  onPressed: _launchEndpoints,
+                                  child: const Text('API Endpoints'))),
+                        ]),
                   ),
                 ]),
           ),

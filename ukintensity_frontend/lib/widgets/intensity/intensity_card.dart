@@ -26,7 +26,8 @@ class IntensityCard extends StatelessWidget {
       this.showDate = false,
       this.showActual = true,
       this.showForecast = true}) {
-    snapshot.intensity?.actual ??= 0; // if in future time, otherwise returns null
+    snapshot.intensity?.actual ??=
+        0; // if in future time, otherwise returns null
   }
 
   @override
@@ -41,7 +42,10 @@ class IntensityCard extends StatelessWidget {
               if (showDate == true)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[Text(prettyDate(snapshot.from, snapshot.to), style: Theme.of(context).textTheme.bodyMedium)],
+                  children: <Widget>[
+                    Text(prettyDate(snapshot.from, snapshot.to),
+                        style: Theme.of(context).textTheme.bodyMedium)
+                  ],
                 ),
               // widget info row
               Row(
@@ -53,7 +57,8 @@ class IntensityCard extends StatelessWidget {
                         "${snapshot.intensity!.actual! - snapshot.intensity!.forecast!}",
                         style: Theme.of(context).textTheme.headline6,
                       ),
-                      getIntensityDeltaIcon(snapshot.intensity!.forecast! - snapshot.intensity!.actual!),
+                      getIntensityDeltaIcon(snapshot.intensity!.forecast! -
+                          snapshot.intensity!.actual!),
                       getIntensityNumberIcon(snapshot.intensity!.index),
                       Text(
                         snapshot.intensity!.index!.toPascalCase(),
@@ -82,12 +87,14 @@ class IntensityCard extends StatelessWidget {
                         'Actual',
                         style: Theme.of(context).textTheme.headline6,
                       ),
-                      if (snapshot.intensity!.actual == null || snapshot.intensity!.actual == 0)
+                      if (snapshot.intensity!.actual == null ||
+                          snapshot.intensity!.actual == 0)
                         Text(
                           'No data',
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
-                      if (snapshot.intensity!.actual != null && snapshot.intensity!.actual! > 0)
+                      if (snapshot.intensity!.actual != null &&
+                          snapshot.intensity!.actual! > 0)
                         Text(
                           '${snapshot.intensity!.actual}',
                           style: Theme.of(context).textTheme.bodyLarge,
@@ -111,7 +118,10 @@ class IntensityCard extends StatelessWidget {
               if (showDate == true)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[Text(prettyDate(snapshot.from, snapshot.to), style: Theme.of(context).textTheme.bodyMedium)],
+                  children: <Widget>[
+                    Text(prettyDate(snapshot.from, snapshot.to),
+                        style: Theme.of(context).textTheme.bodyMedium)
+                  ],
                 ),
               // widget info row
               Row(
@@ -123,8 +133,12 @@ class IntensityCard extends StatelessWidget {
                         "${snapshot.intensity!.actual! - snapshot.intensity!.forecast!}",
                         style: Theme.of(context).textTheme.headline6,
                       ),
-                      getIntensityDeltaIcon(snapshot.intensity!.forecast! - snapshot.intensity!.actual!, size: 15),
-                      getIntensityNumberIcon(snapshot.intensity!.index, size: 35),
+                      getIntensityDeltaIcon(
+                          snapshot.intensity!.forecast! -
+                              snapshot.intensity!.actual!,
+                          size: 15),
+                      getIntensityNumberIcon(snapshot.intensity!.index,
+                          size: 35),
                       Text(
                         snapshot.intensity!.index!.toPascalCase(),
                         style: Theme.of(context).textTheme.bodyMedium,
@@ -156,12 +170,14 @@ class IntensityCard extends StatelessWidget {
                               'Actual',
                               style: Theme.of(context).textTheme.headline6,
                             ),
-                            if (snapshot.intensity!.actual == null || snapshot.intensity!.actual == 0)
+                            if (snapshot.intensity!.actual == null ||
+                                snapshot.intensity!.actual == 0)
                               Text(
                                 'No data',
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
-                            if (snapshot.intensity!.actual != null && snapshot.intensity!.actual! > 0)
+                            if (snapshot.intensity!.actual != null &&
+                                snapshot.intensity!.actual! > 0)
                               Text(
                                 '${snapshot.intensity!.actual}',
                                 style: Theme.of(context).textTheme.bodyLarge,

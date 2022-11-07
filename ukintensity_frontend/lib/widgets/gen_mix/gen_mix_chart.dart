@@ -6,7 +6,8 @@ class GenMixSwitchChart extends StatefulWidget {
   final List<GenerationMixItem>? items;
   final String title;
 
-  GenMixSwitchChart({Key? key, required this.items, required this.title}) : super(key: key) {
+  GenMixSwitchChart({Key? key, required this.items, required this.title})
+      : super(key: key) {
     items!.sort((a, b) => a.perc!.compareTo(b.perc!));
   }
 
@@ -45,17 +46,23 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
               children: <Widget>[
                 if (status == 0)
                   SfCircularChart(
-                    legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+                    legend: Legend(
+                        isVisible: true,
+                        overflowMode: LegendItemOverflowMode.wrap),
                     series: <DoughnutSeries<GenerationMixItem, String>>[
                       DoughnutSeries<GenerationMixItem, String>(
                           radius: '80%',
                           explode: true,
                           explodeOffset: '10%',
                           dataSource: widget.items,
-                          xValueMapper: (GenerationMixItem data, _) => data.fuel as String,
-                          yValueMapper: (GenerationMixItem data, _) => data.perc,
-                          dataLabelMapper: (GenerationMixItem data, _) => data.fuel,
-                          dataLabelSettings: const DataLabelSettings(isVisible: true))
+                          xValueMapper: (GenerationMixItem data, _) =>
+                              data.fuel as String,
+                          yValueMapper: (GenerationMixItem data, _) =>
+                              data.perc,
+                          dataLabelMapper: (GenerationMixItem data, _) =>
+                              data.fuel,
+                          dataLabelSettings:
+                              const DataLabelSettings(isVisible: true))
                     ],
                   ),
                 if (status == 1)
@@ -64,12 +71,14 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
                     DataColumn(label: Expanded(child: Text('Percentile')))
                   ], rows: <DataRow>[
                     for (var genItem in widget.items!)
-                      DataRow(cells: <DataCell>[DataCell(Text(genItem.fuel!)), DataCell(Text(genItem.perc!.toString()))])
+                      DataRow(cells: <DataCell>[
+                        DataCell(Text(genItem.fuel!)),
+                        DataCell(Text(genItem.perc!.toString()))
+                      ])
                   ])
               ],
             ),
           ]),
         ));
   }
-
 }

@@ -30,9 +30,11 @@ String prettyDate(String? start, String? end) {
   var e = DateTime.parse(end!);
 
   if (s.isSameDate(e)) {
-    return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) + DateFormat("HH:MM)").format(e);
+    return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) +
+        DateFormat("HH:MM)").format(e);
   } else {
-    return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) + DateFormat("HH:MM) dd-MM-yyyy").format(e);
+    return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) +
+        DateFormat("HH:MM) dd-MM-yyyy").format(e);
   }
 }
 

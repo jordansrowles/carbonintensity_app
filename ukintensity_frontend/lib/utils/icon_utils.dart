@@ -21,7 +21,8 @@ Icon getIntensityDeltaIcon(int? delta, {double size = 35.0}) => Icon(
 
 Icon getIntensityNumberIcon(String? index, {double size = 50.0}) {
   try {
-    return Icon(intensityColours[index]!["icon"] as IconData, size: size, color: intensityColours[index]!["colour"] as Color);
+    return Icon(intensityColours[index]!["icon"] as IconData,
+        size: size, color: intensityColours[index]!["colour"] as Color);
   } catch (e) {
     return Icon(Icons.looks, size: size, color: Colors.green);
   }

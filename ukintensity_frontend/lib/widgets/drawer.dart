@@ -16,7 +16,10 @@ class DrawerWidget extends StatefulWidget {
 
 class _DrawerWidgetState extends State<DrawerWidget> {
   // default values for height from flutter _kDrawerHeaderHeight
-  Widget _createHeader(String text, {double height = 160.0 + 1.0, required BuildContext context, IconData? icon}) {
+  Widget _createHeader(String text,
+      {double height = 160.0 + 1.0,
+      required BuildContext context,
+      IconData? icon}) {
     return SizedBox(
       height: height,
       child: DrawerHeader(
@@ -36,7 +39,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   spacing: 20,
                   children: <Widget>[
                     Icon(icon),
-                    Text(text, style: const TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.w500))
+                    Text(text,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500))
                   ],
                 )),
           ])),
@@ -63,7 +70,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       )));
             },
           ),
-          _createHeader("Carbon Intensity", height: 50, context: context, icon: Icons.co2_outlined),
+          _createHeader("Carbon Intensity",
+              height: 50, context: context, icon: Icons.co2_outlined),
           ListTile(
             title: const Text(
               "Current National",
@@ -90,7 +98,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       )));
             },
           ),
-          _createHeader("Generation Mix", height: 50, context: context, icon: Icons.bolt),
+          _createHeader("Generation Mix",
+              height: 50, context: context, icon: Icons.bolt),
           ListTile(
             title: const Text(
               "Current National",

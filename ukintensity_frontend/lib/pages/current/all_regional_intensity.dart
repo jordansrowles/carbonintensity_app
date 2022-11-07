@@ -10,7 +10,8 @@ class AllRegionalIntensityPage extends StatefulWidget {
   const AllRegionalIntensityPage({super.key, required this.title});
 
   @override
-  State<AllRegionalIntensityPage> createState() => _AllRegionalIntensityPageState();
+  State<AllRegionalIntensityPage> createState() =>
+      _AllRegionalIntensityPageState();
 }
 
 class _AllRegionalIntensityPageState extends State<AllRegionalIntensityPage> {
@@ -40,14 +41,19 @@ class _AllRegionalIntensityPageState extends State<AllRegionalIntensityPage> {
               padding: const EdgeInsets.only(top: 20),
               child: Column(children: <Widget>[
                 FutureBuilder<RegionalIntensity>(
-                  future: RegionalIntensityService.all(), // a previously-obtained Future<String> or null
-                  builder: (BuildContext context, AsyncSnapshot<RegionalIntensity> snapshot) {
+                  future: RegionalIntensityService
+                      .all(), // a previously-obtained Future<String> or null
+                  builder: (BuildContext context,
+                      AsyncSnapshot<RegionalIntensity> snapshot) {
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
                         Text(prettySingleDate(snapshot.data!.data![0].from)),
-                        for (var i = 0; i < snapshot.data!.data![0].regions!.length; i++)
-                          RegionCard(snapshot: snapshot.data!.data![0].regions![i])
+                        for (var i = 0;
+                            i < snapshot.data!.data![0].regions!.length;
+                            i++)
+                          RegionCard(
+                              snapshot: snapshot.data!.data![0].regions![i])
                         //if (snapshot.data!.data![i].intensity!.actual! != null)
                         //IntensityCard(snapshot: snapshot.data!.data![i])
                       ];

@@ -15,8 +15,10 @@ class NationsForecastWidget extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20),
         child: Column(children: <Widget>[
           FutureBuilder<List<NationIntensity>>(
-            future: getIntensities(), // a previously-obtained Future<String> or null
-            builder: (BuildContext context, AsyncSnapshot<List<NationIntensity>> snapshot) {
+            future:
+                getIntensities(), // a previously-obtained Future<String> or null
+            builder: (BuildContext context,
+                AsyncSnapshot<List<NationIntensity>> snapshot) {
               List<Widget> children;
               if (snapshot.hasData) {
                 children = <Widget>[

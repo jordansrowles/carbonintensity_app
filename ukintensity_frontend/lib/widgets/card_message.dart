@@ -20,7 +20,8 @@ class CardMessage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
               leading: const Icon(Icons.co2),
               title: Text(heading!),
               subtitle: Text(text!),

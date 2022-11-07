@@ -4,7 +4,8 @@ class Accordion extends StatefulWidget {
   final String title;
   final List<Widget> content;
 
-  const Accordion({Key? key, required this.title, required this.content}) : super(key: key);
+  const Accordion({Key? key, required this.title, required this.content})
+      : super(key: key);
   @override
   _AccordionState createState() => _AccordionState();
 }
@@ -20,7 +21,8 @@ class _AccordionState extends State<Accordion> {
           child: ListTile(
             title: Text(widget.title),
             trailing: IconButton(
-              icon: Icon(_showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down),
+              icon: Icon(
+                  _showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down),
               onPressed: () {
                 setState(() {
                   _showContent = !_showContent;
@@ -31,7 +33,8 @@ class _AccordionState extends State<Accordion> {
         ),
         _showContent
             ? Container(
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                 child: Column(children: widget.content),
               )
             : Container()

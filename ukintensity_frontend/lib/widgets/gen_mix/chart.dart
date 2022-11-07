@@ -15,14 +15,16 @@ class GenMixChart extends StatelessWidget {
         child: Column(
       children: <Widget>[
         SfCircularChart(
-          legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+          legend: Legend(
+              isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
           series: <DoughnutSeries<GenerationMixItem, String>>[
             DoughnutSeries<GenerationMixItem, String>(
                 radius: '80%',
                 explode: true,
                 explodeOffset: '10%',
                 dataSource: items,
-                xValueMapper: (GenerationMixItem data, _) => data.fuel as String,
+                xValueMapper: (GenerationMixItem data, _) =>
+                    data.fuel as String,
                 yValueMapper: (GenerationMixItem data, _) => data.perc,
                 dataLabelMapper: (GenerationMixItem data, _) => data.fuel,
                 dataLabelSettings: const DataLabelSettings(isVisible: true))

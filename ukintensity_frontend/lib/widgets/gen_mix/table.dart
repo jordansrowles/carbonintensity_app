@@ -18,7 +18,10 @@ class GenMixTable extends StatelessWidget {
           DataColumn(label: Expanded(child: Text('Percentile')))
         ], rows: <DataRow>[
           for (var genItem in items!)
-            DataRow(cells: <DataCell>[DataCell(Text(genItem.fuel!)), DataCell(Text(genItem.perc!.toString()))])
+            DataRow(cells: <DataCell>[
+              DataCell(Text(genItem.fuel!)),
+              DataCell(Text(genItem.perc!.toString()))
+            ])
         ])
       ],
     ));

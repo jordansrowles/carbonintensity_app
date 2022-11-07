@@ -9,10 +9,12 @@ class CurrentNationalIntensityPage extends StatefulWidget {
   const CurrentNationalIntensityPage({super.key, required this.title});
 
   @override
-  State<CurrentNationalIntensityPage> createState() => _CurrentNationalIntensityPageState();
+  State<CurrentNationalIntensityPage> createState() =>
+      _CurrentNationalIntensityPageState();
 }
 
-class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityPage> {
+class _CurrentNationalIntensityPageState
+    extends State<CurrentNationalIntensityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +36,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
                   FutureBuilder<NationalIntensity>(
-                    future: NationalIntensityService.getCurrentHalfHour(), // a previously-obtained Future<String> or null
-                    builder: (BuildContext context, AsyncSnapshot<NationalIntensity> snapshot) {
+                    future: NationalIntensityService
+                        .getCurrentHalfHour(), // a previously-obtained Future<String> or null
+                    builder: (BuildContext context,
+                        AsyncSnapshot<NationalIntensity> snapshot) {
                       List<Widget> children;
                       if (snapshot.hasData) {
                         children = <Widget>[
@@ -89,8 +93,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
                   FutureBuilder<NationIntensity>(
-                    future: NationIntensityService.england(), // a previously-obtained Future<String> or null
-                    builder: (BuildContext context, AsyncSnapshot<NationIntensity> snapshot) {
+                    future: NationIntensityService
+                        .england(), // a previously-obtained Future<String> or null
+                    builder: (BuildContext context,
+                        AsyncSnapshot<NationIntensity> snapshot) {
                       List<Widget> children;
                       if (snapshot.hasData) {
                         children = <Widget>[
@@ -145,8 +151,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
                   FutureBuilder<NationIntensity>(
-                    future: NationIntensityService.scotland(), // a previously-obtained Future<String> or null
-                    builder: (BuildContext context, AsyncSnapshot<NationIntensity> snapshot) {
+                    future: NationIntensityService
+                        .scotland(), // a previously-obtained Future<String> or null
+                    builder: (BuildContext context,
+                        AsyncSnapshot<NationIntensity> snapshot) {
                       List<Widget> children;
                       if (snapshot.hasData) {
                         children = <Widget>[
@@ -201,8 +209,10 @@ class _CurrentNationalIntensityPageState extends State<CurrentNationalIntensityP
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
                   FutureBuilder<NationIntensity>(
-                    future: NationIntensityService.wales(), // a previously-obtained Future<String> or null
-                    builder: (BuildContext context, AsyncSnapshot<NationIntensity> snapshot) {
+                    future: NationIntensityService
+                        .wales(), // a previously-obtained Future<String> or null
+                    builder: (BuildContext context,
+                        AsyncSnapshot<NationIntensity> snapshot) {
                       List<Widget> children;
                       if (snapshot.hasData) {
                         children = <Widget>[
