@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ukintensity_app/pages/current/all_regional_intensity.dart';
 import 'package:ukintensity_app/pages/current/all_today_intensity_new.dart';
+import 'package:ukintensity_app/pages/current/by_postcode.dart';
 import 'package:ukintensity_app/pages/current/generation_mix.dart';
 import 'package:ukintensity_app/pages/current/national_intensity.dart';
 import 'package:ukintensity_app/pages/home.dart';
@@ -95,6 +96,19 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const AllNationalIntensityPage(
                         title: "Current National Intensity",
+                      )));
+            },
+          ),
+          ListTile(
+            title: const Text(
+              "By Postcode",
+              style: TextStyle(fontSize: 18),
+            ),
+            leading: const Icon(Icons.pin_drop),
+            onTap: () async {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CurrentByPostCodePage(
+                        title: "Intensity By Postcode",
                       )));
             },
           ),

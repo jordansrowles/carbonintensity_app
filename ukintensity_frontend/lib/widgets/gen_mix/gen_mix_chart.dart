@@ -10,7 +10,7 @@ class GenMixSwitchChart extends StatefulWidget {
 
   GenMixSwitchChart({Key? key, required this.items, required this.title})
       : super(key: key) {
-    items!.sort((a, b) => a.perc!.compareTo(b.perc!));
+    items!.sort((b, a) => a.perc!.compareTo(b.perc!));
   }
 
   @override
@@ -23,6 +23,7 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
   void changeStatus() {
     status++;
     if (status == 3) status = 0;
+    //widget.items!.sort((a, b) => a.perc!.compareTo(b.perc!));
   }
 
   Widget pieChart() {
@@ -85,15 +86,22 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
             ),
             Column(
               children: <Widget>[
-                if (status == 0) pieChart(),
-                if (status == 1) table(),
-                if (status == 2)
-                  Column(
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Column(
                     children: [
-                      pieChart(),
-                      table(),
+                      if (status == 0) pieChart(),
+                      if (status == 1) table(),
+                      if (status == 2)
+                        Column(
+                          children: [
+                            pieChart(),
+                            table(),
+                          ],
+                        )
                     ],
-                  )
+                  ),
+                )
               ],
             ),
           ]),

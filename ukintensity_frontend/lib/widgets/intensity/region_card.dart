@@ -21,7 +21,9 @@ class RegionCard extends StatelessWidget {
                 title:
                     "${snapshot.regionid.toString()}) ${snapshot.shortname.toString()} (${snapshot.dnoregion.toString()})",
                 content: <Widget>[
-                  GenMixSwitchChart(items: snapshot.generationmix, title: "Generation Mix Data"),
+                  GenMixSwitchChart(
+                      items: snapshot.generationmix,
+                      title: "Generation Mix Data"),
                   /*Accordion(title: "Generation Mix (Chart)", content: <Widget>[
                     GenMixChart(items: snapshot.generationmix)
                   ]),
