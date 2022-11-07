@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ukintensity_app/utils/icon_utils.dart';
+import 'package:ukintensity_app/utils/utils.dart';
 import 'package:ukintensity_integration/ukintensity_integration.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -23,6 +25,45 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
     if (status == 3) status = 0;
   }
 
+  Widget pieChart() {
+    return SfCircularChart(
+      legend:
+          Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+      series: <DoughnutSeries<GenerationMixItem, String>>[
+        DoughnutSeries<GenerationMixItem, String>(
+            radius: '80%',
+            explode: true,
+            explodeOffset: '10%',
+            dataSource: widget.items,
+            xValueMapper: (GenerationMixItem data, _) => data.fuel as String,
+            yValueMapper: (GenerationMixItem data, _) => data.perc,
+            dataLabelMapper: (GenerationMixItem data, _) => data.fuel,
+            dataLabelSettings: const DataLabelSettings(isVisible: true))
+      ],
+    );
+  }
+
+  Widget table() {
+    return DataTable(columns: const <DataColumn>[
+      DataColumn(label: Expanded(child: Text('Fuel'))),
+      DataColumn(label: Expanded(child: Text('Percentile')))
+    ], rows: <DataRow>[
+      for (var genItem in widget.items!)
+        DataRow(cells: <DataCell>[
+          DataCell(Row(
+            children: [
+              getGenMixIcon(genItem.fuel!),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Text(genItem.fuel!.toPascalCase()),
+              )
+            ],
+          )),
+          DataCell(Text(genItem.perc!.toString()))
+        ])
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -44,38 +85,15 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
             ),
             Column(
               children: <Widget>[
-                if (status == 0)
-                  SfCircularChart(
-                    legend: Legend(
-                        isVisible: true,
-                        overflowMode: LegendItemOverflowMode.wrap),
-                    series: <DoughnutSeries<GenerationMixItem, String>>[
-                      DoughnutSeries<GenerationMixItem, String>(
-                          radius: '80%',
-                          explode: true,
-                          explodeOffset: '10%',
-                          dataSource: widget.items,
-                          xValueMapper: (GenerationMixItem data, _) =>
-                              data.fuel as String,
-                          yValueMapper: (GenerationMixItem data, _) =>
-                              data.perc,
-                          dataLabelMapper: (GenerationMixItem data, _) =>
-                              data.fuel,
-                          dataLabelSettings:
-                              const DataLabelSettings(isVisible: true))
+                if (status == 0) pieChart(),
+                if (status == 1) table(),
+                if (status == 2)
+                  Column(
+                    children: [
+                      pieChart(),
+                      table(),
                     ],
-                  ),
-                if (status == 1)
-                  DataTable(columns: const <DataColumn>[
-                    DataColumn(label: Expanded(child: Text('Fuel'))),
-                    DataColumn(label: Expanded(child: Text('Percentile')))
-                  ], rows: <DataRow>[
-                    for (var genItem in widget.items!)
-                      DataRow(cells: <DataCell>[
-                        DataCell(Text(genItem.fuel!)),
-                        DataCell(Text(genItem.perc!.toString()))
-                      ])
-                  ])
+                  )
               ],
             ),
           ]),
