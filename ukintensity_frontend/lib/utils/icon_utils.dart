@@ -27,3 +27,24 @@ Icon getIntensityNumberIcon(String? index, {double size = 50.0}) {
     return Icon(Icons.looks, size: size, color: Colors.green);
   }
 }
+
+var genMixIcons = {
+  "wind": {"icon": Icons.air, "colour": Colors.red},
+  "gas": {"icon": Icons.propane, "colour": Colors.red},
+  //"imports" : { "icon": Icons.directions_boat, "colour": Colors.red },
+  "imports": {"icon": Icons.oil_barrel, "colour": Colors.red},
+  "nuclear": {"icon": Icons.data_thresholding, "colour": Colors.red},
+  "biomass": {"icon": Icons.compost, "colour": Colors.red},
+  "hydro": {"icon": Icons.water, "colour": Colors.red},
+  "coal": {"icon": Icons.air, "colour": Colors.red},
+  "solar": {"icon": Icons.solar_power, "colour": Colors.red}
+};
+
+Icon getGenMixIcon(String? index, {double size = 20.0}) {
+  try {
+    return Icon(genMixIcons[index]!["icon"] as IconData,
+        size: size, color: genMixIcons[index]!["colour"] as Color);
+  } catch (e) {
+    return Icon(Icons.looks, size: size, color: Colors.green);
+  }
+}

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ukintensity_app/utils/icon_utils.dart';
+import 'package:ukintensity_app/utils/utils.dart';
 import 'package:ukintensity_integration/ukintensity_integration.dart';
 
 class GenMixTable extends StatelessWidget {
@@ -19,7 +21,15 @@ class GenMixTable extends StatelessWidget {
         ], rows: <DataRow>[
           for (var genItem in items!)
             DataRow(cells: <DataCell>[
-              DataCell(Text(genItem.fuel!)),
+              DataCell(Row(
+                children: [
+                  getGenMixIcon(genItem.fuel!),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Text(genItem.fuel!.toPascalCase()),
+                  )
+                ],
+              )),
               DataCell(Text(genItem.perc!.toString()))
             ])
         ])
