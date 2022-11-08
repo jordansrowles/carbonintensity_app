@@ -349,7 +349,7 @@ packages:
       path: "../ukintensity_integration"
       relative: true
     source: path
-    version: "1.0.2"
+    version: "1.0.3"
   url_launcher:
     dependency: "direct main"
     description:

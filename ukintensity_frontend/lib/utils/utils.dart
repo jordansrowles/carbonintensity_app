@@ -62,8 +62,8 @@ String getIndexStringFromIntensityValue(int? value) {
 }
 
 tryConnection() async {
-  final Connectivity _connectivity = Connectivity();
-  ConnectivityResult result = await _connectivity.checkConnectivity();
+  final Connectivity connectivity = Connectivity();
+  ConnectivityResult result = await connectivity.checkConnectivity();
   if (result == ConnectivityResult.none) {
     if (kDebugMode) {
       print("No internet");
@@ -75,8 +75,8 @@ tryConnection() async {
 }
 
 tryConnectionNavigate(BuildContext context) async {
-  final Connectivity _connectivity = Connectivity();
-  ConnectivityResult result = await _connectivity.checkConnectivity();
+  final Connectivity connectivity = Connectivity();
+  ConnectivityResult result = await connectivity.checkConnectivity();
   if (result == ConnectivityResult.none) {
     if (kDebugMode) {
       print("No internet");

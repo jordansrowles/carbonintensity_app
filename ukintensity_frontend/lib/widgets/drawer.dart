@@ -5,8 +5,6 @@ import 'package:ukintensity_app/pages/current/by_postcode.dart';
 import 'package:ukintensity_app/pages/current/generation_mix.dart';
 import 'package:ukintensity_app/pages/current/national_intensity.dart';
 import 'package:ukintensity_app/pages/home.dart';
-import 'package:ukintensity_app/pages/no_internet.dart';
-import 'package:ukintensity_app/utils/colours.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});

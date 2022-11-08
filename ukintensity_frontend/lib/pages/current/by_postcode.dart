@@ -21,12 +21,19 @@ class _CurrentByPostCodePageState extends State<CurrentByPostCodePage> {
 
   void changePostcode(String? outcode) {
     setState(() {
+      if (outcode == null || outcode.isEmpty) {
+        postcode = "TW8";
+        isValid = true;
+        return;
+      }
       try {
         postcode = outcode;
         isValid = true;
+        return;
       } catch (e) {
-        postcode = "LU7";
+        postcode = "TW8";
         isValid = true;
+        return;
       }
     });
   }
@@ -54,6 +61,7 @@ class _CurrentByPostCodePageState extends State<CurrentByPostCodePage> {
                               changePostcode(value); // even though false
                             }
                             changePostcode(value);
+                            return null;
                           },
                         ),
                         Padding(

@@ -1,10 +1,7 @@
-import 'dart:io';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ukintensity_app/pages/home.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:ukintensity_app/utils/utils.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
 
 class NoInternetPage extends StatefulWidget {
@@ -17,13 +14,14 @@ class NoInternetPage extends StatefulWidget {
 
 class _NoInternetPageState extends State<NoInternetPage> {
   _tryConnection(BuildContext context) async {
-    final Connectivity _connectivity = Connectivity();
-    ConnectivityResult result = await _connectivity.checkConnectivity();
+    final Connectivity connectivity = Connectivity();
+    ConnectivityResult result = await connectivity.checkConnectivity();
     if (result == ConnectivityResult.none) {
       if (kDebugMode) {
         print("No internet");
       }
     } else {
+      // ignore: use_build_context_synchronously
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const MyHomePage(
                 title: "All Regions",

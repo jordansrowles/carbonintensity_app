@@ -22,7 +22,7 @@ class _AllRegionalIntensityPageState extends State<AllRegionalIntensityPage> {
       result = tryConnection();
     });
     if (result == false) {
-      Future.delayed(Duration(milliseconds: 100)).then((_) {
+      Future.delayed(const Duration(milliseconds: 100)).then((_) {
         Navigator.pushReplacementNamed(context, '/home');
       });
     }
