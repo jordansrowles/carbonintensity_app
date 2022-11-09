@@ -160,6 +160,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       )));
             },
           ),
+          /*
           ListTile(
             title: const Text(
               "Settings",
@@ -172,7 +173,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         title: "App Settings",
                       )));
             },
-          ),
+          ),*/
         ],
       ),
     );
