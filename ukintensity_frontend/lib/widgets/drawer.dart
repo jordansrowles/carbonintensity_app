@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:ukintensity_app/pages/current/all_regional_intensity.dart';
 import 'package:ukintensity_app/pages/current/all_today_intensity_new.dart';
 import 'package:ukintensity_app/pages/current/by_postcode.dart';
 import 'package:ukintensity_app/pages/current/generation_mix.dart';
 import 'package:ukintensity_app/pages/current/national_intensity.dart';
 import 'package:ukintensity_app/pages/home.dart';
+import 'package:ukintensity_app/pages/settings.dart';
+
+import '../pages/forecasts/regional_forecast.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -37,7 +41,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 child: Wrap(
                   spacing: 20,
                   children: <Widget>[
-                    Icon(icon),
+                    Icon(
+                      icon,
+                      color: Colors.white,
+                    ),
                     Text(text,
                         style: const TextStyle(
                             color: Colors.white,
@@ -135,6 +142,34 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const AllRegionalIntensityPage(
                         title: "All Regions",
+                      )));
+            },
+          ),
+          _createHeader("Forecast Data",
+              height: 50, context: context, icon: Icons.calendar_month),
+          ListTile(
+            title: const Text(
+              "Regional (+24hr)",
+              style: TextStyle(fontSize: 18),
+            ),
+            leading: const Icon(Icons.co2),
+            onTap: () async {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const RegionalForecastPage(
+                        title: "Regional Intensity (+24hr)",
+                      )));
+            },
+          ),
+          ListTile(
+            title: const Text(
+              "Settings",
+              style: TextStyle(fontSize: 18),
+            ),
+            leading: const Icon(Icons.co2),
+            onTap: () async {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const SettingsPage(
+                        title: "App Settings",
                       )));
             },
           ),

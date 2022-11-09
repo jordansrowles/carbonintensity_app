@@ -50,6 +50,7 @@ class _CurrentByPostCodePageState extends State<CurrentByPostCodePage> {
             Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
+                  Text("Postcode (outcode onlu)", style: Theme.of(context).textTheme.bodyMedium,),
                   Form(
                     key: _formKey,
                     child: Column(
@@ -112,11 +113,12 @@ class _CurrentByPostCodePageState extends State<CurrentByPostCodePage> {
                                           color: Colors.red,
                                           size: 60,
                                         ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 16),
+                                        const Padding(
+                                          padding: EdgeInsets.only(top: 16),
                                           child:
-                                              Text('Error: ${snapshot.error}'),
+                                              //Text('Error: ${snapshot.error}'),
+                                              Text(
+                                                  'Error: Could not find postcode. Please try the outcode only (first half of post code)'),
                                         ),
                                       ];
                                     } else {

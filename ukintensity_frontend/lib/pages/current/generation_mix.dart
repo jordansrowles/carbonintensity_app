@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ukintensity_app/utils/utils.dart';
 import 'package:ukintensity_app/widgets/card_message.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
-import 'package:ukintensity_app/widgets/gen_mix/gen_mix_chart.dart';
+import 'package:ukintensity_app/widgets/gen_mix/chart/gen_mix_chart.dart';
 import 'package:ukintensity_integration/ukintensity_integration.dart';
 
 class CurrentGenMixPage extends StatelessWidget {
@@ -29,9 +29,17 @@ class CurrentGenMixPage extends StatelessWidget {
                                   child: Column(
                                   children: [
                                     GenMixSwitchChart(
-                                        items:
-                                            snapshot.data!.data!.generationmix!,
-                                        title: "National Generation Mix"),
+                                      items:
+                                          snapshot.data!.data!.generationmix!,
+                                      title: "National Generation Mix",
+                                      showExtendedOptions: true,
+                                    ),
+                                    GenMixSwitchChart(
+                                      items:
+                                          snapshot.data!.data!.generationmix!,
+                                      title: "No extension test",
+                                      showExtendedOptions: false,
+                                    ),
                                     const CardMessage(
                                         heading: "What is Generation Mix?",
                                         text: whatIsGenMix)

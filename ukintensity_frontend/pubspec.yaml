@@ -43,6 +43,9 @@ dependencies:
   url_launcher: ^6.1.6
   connectivity_plus: ^2.2.1
   flutter_launcher_icons: "^0.10.0"
+  community_material_icon: ^5.9.55
+  shared_preferences: ^2.0.15
+  settings_ui: ^2.0.2
   intl:
 
 dev_dependencies:

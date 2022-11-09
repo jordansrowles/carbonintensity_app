@@ -8,8 +8,13 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 class GenMixSwitchChart extends StatefulWidget {
   final List<GenerationMixItem>? items;
   final String title;
+  final bool showExtendedOptions;
 
-  GenMixSwitchChart({Key? key, required this.items, required this.title})
+  GenMixSwitchChart(
+      {Key? key,
+      required this.items,
+      required this.title,
+      required this.showExtendedOptions})
       : super(key: key) {
     items!.sort((b, a) => a.perc!.compareTo(b.perc!));
   }
@@ -20,7 +25,7 @@ class GenMixSwitchChart extends StatefulWidget {
 
 class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
   int status = 0; // 0 graph, 1 data, 2 hilo
-
+  bool showZeroValues = true;
   void changeViewStatus() {
     status++;
     if (status == 3) status = 0;
@@ -87,6 +92,29 @@ class _GenMixSwitchChartState extends State<GenMixSwitchChart> {
                       },
                     ),
                   ),
+                  if (widget.showExtendedOptions)
+                    ListTile(
+                        title: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.visibility_off),
+                          onPressed: () {
+                            setState(() {
+                              changeViewStatus();
+                            });
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(CommunityMaterialIcons.download),
+                          onPressed: () {
+                            setState(() {
+                              changeViewStatus();
+                            });
+                          },
+                        ),
+                      ],
+                    )),
                 ],
               ),
             ),

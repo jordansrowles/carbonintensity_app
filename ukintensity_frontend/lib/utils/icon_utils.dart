@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 
 var intensityColours = {
@@ -28,19 +29,29 @@ Icon getIntensityNumberIcon(String? index, {double size = 50.0}) {
   }
 }
 
+var genMixIconColour = const Color(0xff0d43ff);
 var genMixIcons = {
-  "wind": {"icon": Icons.air, "colour": Colors.red},
-  "gas": {"icon": Icons.propane, "colour": Colors.red},
+  "wind": {
+    "icon": CommunityMaterialIcons.wind_turbine,
+    "colour": genMixIconColour
+  },
+  "gas": {"icon": Icons.propane, "colour": genMixIconColour},
   //"imports" : { "icon": Icons.directions_boat, "colour": Colors.red },
-  "imports": {"icon": Icons.oil_barrel, "colour": Colors.red},
-  "nuclear": {"icon": Icons.data_thresholding, "colour": Colors.red},
-  "biomass": {"icon": Icons.compost, "colour": Colors.red},
-  "hydro": {"icon": Icons.water, "colour": Colors.red},
-  "coal": {"icon": Icons.air, "colour": Colors.red},
-  "solar": {"icon": Icons.solar_power, "colour": Colors.red}
+  "imports": {"icon": Icons.directions_ferry, "colour": genMixIconColour},
+  "nuclear": {"icon": CommunityMaterialIcons.atom, "colour": genMixIconColour},
+  "biomass": {"icon": Icons.compost, "colour": genMixIconColour},
+  "hydro": {
+    "icon": CommunityMaterialIcons.hydro_power,
+    "colour": genMixIconColour
+  },
+  "coal": {
+    "icon": CommunityMaterialIcons.fireplace,
+    "colour": genMixIconColour
+  },
+  "solar": {"icon": Icons.solar_power, "colour": genMixIconColour}
 };
 
-Icon getGenMixIcon(String? index, {double size = 20.0}) {
+Icon getGenMixIcon(String? index, {double size = 35.0}) {
   try {
     return Icon(genMixIcons[index]!["icon"] as IconData,
         size: size, color: genMixIcons[index]!["colour"] as Color);
