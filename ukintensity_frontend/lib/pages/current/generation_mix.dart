@@ -32,14 +32,15 @@ class CurrentGenMixPage extends StatelessWidget {
                                       items:
                                           snapshot.data!.data!.generationmix!,
                                       title: "National Generation Mix",
-                                      showExtendedOptions: true,
+                                      showExtendedOptions: false,
                                     ),
+                                    /*
                                     GenMixSwitchChart(
                                       items:
                                           snapshot.data!.data!.generationmix!,
                                       title: "No extension test",
                                       showExtendedOptions: false,
-                                    ),
+                                    ),*/
                                     const CardMessage(
                                         heading: "What is Generation Mix?",
                                         text: whatIsGenMix)
