@@ -22,7 +22,8 @@ class CurrentGenMixPage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
                   FutureBuilder<GenerationMix?>(
-                      future: AppDataService().nationalGenMix(), // GenerationMixService.get()
+                      future: AppDataService()
+                          .nationalGenMix(), // GenerationMixService.get()
                       builder: (BuildContext ctx,
                               AsyncSnapshot<GenerationMix?> snapshot) =>
                           snapshot.hasData

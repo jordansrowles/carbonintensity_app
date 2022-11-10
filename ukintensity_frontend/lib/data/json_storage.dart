@@ -9,12 +9,14 @@ class JsonStorageNationalIntensity {
   JsonStore jsonStorage = JsonStore();
 
   Future<NationalIntensity?> getMostRecent() async {
-    Map<String, dynamic>? json = await jsonStorage.getItem('nationalintensity_mostrecent_current');
+    Map<String, dynamic>? json =
+        await jsonStorage.getItem('nationalintensity_mostrecent_current');
     return json != null ? NationalIntensity.fromJson(json) : null;
   }
 
   setMostRecent(NationalIntensity intensity) async {
-    await jsonStorage.setItem('nationalintensity_mostrecent_current', intensity.toJson());
+    await jsonStorage.setItem(
+        'nationalintensity_mostrecent_current', intensity.toJson());
   }
 }
 
@@ -22,7 +24,8 @@ class JsonStorageGenMix {
   JsonStore jsonStorage = JsonStore();
 
   Future<GenerationMix?> getMostRecent() async {
-    Map<String, dynamic>? json = await jsonStorage.getItem('nationalgenmix_mostrecent');
+    Map<String, dynamic>? json =
+        await jsonStorage.getItem('nationalgenmix_mostrecent');
     return json != null ? GenerationMix.fromJson(json) : null;
   }
 
@@ -38,8 +41,11 @@ class AppDataService {
 
   Future<bool> _hasInternetConnection() async {
     try {
-      final response = await http.get(Uri.parse("https://api.carbonintensity.org.uk/intensity"));
-      return (response.statusCode == 200 || response.statusCode == 201) ? true : false;
+      final response = await http
+          .get(Uri.parse("https://api.carbonintensity.org.uk/intensity"));
+      return (response.statusCode == 200 || response.statusCode == 201)
+          ? true
+          : false;
     } catch (e) {
       return false;
     }
@@ -50,11 +56,8 @@ class AppDataService {
       var data = await GenerationMixService.get();
       JsonStorageGenMix().setMostRecent(data);
       return data;
-    }
-    else {
+    } else {
       return JsonStorageGenMix().getMostRecent();
     }
-
   }
-
 }

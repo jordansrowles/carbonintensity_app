@@ -24,11 +24,10 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   @override
-  initState()  {
+  initState() {
     _loadSettings();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {

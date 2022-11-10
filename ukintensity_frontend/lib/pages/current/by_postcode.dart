@@ -50,7 +50,10 @@ class _CurrentByPostCodePageState extends State<CurrentByPostCodePage> {
             Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
-                  Text("Postcode (outcode onlu)", style: Theme.of(context).textTheme.bodyMedium,),
+                  Text(
+                    "Postcode (outcode onlu)",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   Form(
                     key: _formKey,
                     child: Column(
