@@ -46,6 +46,7 @@ dependencies:
   community_material_icon: ^5.9.55
   shared_preferences: ^2.0.15
   settings_ui: ^2.0.2
+  json_store: ^2.0.0
   intl:
 
 dev_dependencies:

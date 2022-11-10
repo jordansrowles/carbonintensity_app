@@ -4,6 +4,7 @@ import 'package:ukintensity_app/widgets/card_message.dart';
 import 'package:ukintensity_app/widgets/drawer.dart';
 import 'package:ukintensity_app/widgets/gen_mix/chart/gen_mix_chart.dart';
 import 'package:ukintensity_integration/ukintensity_integration.dart';
+import 'package:ukintensity_app/data/json_storage.dart';
 
 class CurrentGenMixPage extends StatelessWidget {
   final String title;
@@ -21,7 +22,7 @@ class CurrentGenMixPage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20),
                 child: Column(children: <Widget>[
                   FutureBuilder<GenerationMix?>(
-                      future: GenerationMixService.get(),
+                      future: AppDataService().nationalGenMix(), // GenerationMixService.get()
                       builder: (BuildContext ctx,
                               AsyncSnapshot<GenerationMix?> snapshot) =>
                           snapshot.hasData
