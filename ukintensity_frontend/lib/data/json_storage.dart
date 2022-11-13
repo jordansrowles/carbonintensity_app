@@ -26,7 +26,7 @@ class JsonStorageGenMix {
   Future<GenerationMix?> getMostRecent() async {
     Map<String, dynamic>? json =
         await jsonStorage.getItem('nationalgenmix_mostrecent');
-    return json != null ? GenerationMix.fromJson(json) : null;
+    return json != null ? GenerationMix.fromJson(json) : GenerationMix();
   }
 
   setMostRecent(GenerationMix genmix) async {
@@ -54,10 +54,10 @@ class AppDataService {
   Future<GenerationMix?> nationalGenMix() async {
     if (await _hasInternetConnection()) {
       var data = await GenerationMixService.get();
-      JsonStorageGenMix().setMostRecent(data);
+      await JsonStorageGenMix().setMostRecent(data);
       return data;
     } else {
-      return JsonStorageGenMix().getMostRecent();
+      return await JsonStorageGenMix().getMostRecent();
     }
   }
 }
