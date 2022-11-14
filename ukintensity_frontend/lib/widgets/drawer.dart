@@ -26,33 +26,41 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     return SizedBox(
       height: height,
       child: DrawerHeader(
-          margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
-            /*image: DecorationImage(
+        margin: EdgeInsets.zero,
+        padding: EdgeInsets.zero,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          /*image: DecorationImage(
                 fit: BoxFit.fill,
                 image:  AssetImage('path/to/header_background.png'))*/
-          ),
-          child: Stack(children: <Widget>[
-            Positioned(
-                bottom: 12.0,
-                left: 16.0,
-                child: Wrap(
-                  spacing: 20,
-                  children: <Widget>[
-                    Icon(
-                      icon,
-                      color: Colors.white,
-                    ),
-                    Text(text,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w500))
-                  ],
-                )),
-          ])),
+        ),
+        child:
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Wrap(
+                    spacing: 20,
+                    children: <Widget>[
+                      Icon(
+                        icon,
+                        color: Colors.white,
+                      ),
+                      Text(text,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w500))
+                    ],
+                  ),
+                )
+
+              ],
+            )
+       ,
+      ),
     );
   }
 
