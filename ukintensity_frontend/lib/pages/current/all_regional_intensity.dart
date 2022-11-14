@@ -48,7 +48,7 @@ class _AllRegionalIntensityPageState extends State<AllRegionalIntensityPage> {
                     List<Widget> children;
                     if (snapshot.hasData) {
                       children = <Widget>[
-                        Text(prettySingleDate(snapshot.data!.data![0].from)),
+                        Text(prettyDate(snapshot.data!.data![0].from)),
                         for (var i = 0;
                             i < snapshot.data!.data![0].regions!.length;
                             i++)

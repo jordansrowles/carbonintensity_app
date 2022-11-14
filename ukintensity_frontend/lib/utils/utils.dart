@@ -25,8 +25,11 @@ MaterialColor buildMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
-String prettyDate(String? start, String? end) {
+String prettyDate(String? start, [String? end]) {
   var s = DateTime.parse(start!);
+  if (end == null) {
+    return DateFormat("dd-MM-yyyy (HH:MM)").format(s);
+  }
   var e = DateTime.parse(end!);
 
   if (s.isSameDate(e)) {
@@ -36,11 +39,6 @@ String prettyDate(String? start, String? end) {
     return DateFormat("dd-MM-yyyy (HH:MM - ").format(s) +
         DateFormat("HH:MM) dd-MM-yyyy").format(e);
   }
-}
-
-String prettySingleDate(String? date) {
-  var s = DateTime.parse(date!);
-  return DateFormat("dd-MM-yyyy (HH:MM)").format(s);
 }
 
 extension ToPascalCase on String {
